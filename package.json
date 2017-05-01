@@ -1,0 +1,23 @@
+{
+  "name": "object-extends",
+  "version": "1.0.0",
+  "description": "object extends",
+  "main": "app.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gavinning/object-extends.git"
+  },
+  "keywords": [
+    "object",
+    "extends"
+  ],
+  "author": "gavinning",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gavinning/object-extends/issues"
+  },
+  "homepage": "https://github.com/gavinning/object-extends#readme"
+}
