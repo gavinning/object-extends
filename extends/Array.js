@@ -83,7 +83,8 @@ Array.prototype.remove || Object.defineProperty(Array.prototype, 'remove', {
             return this.remove(el)
         }
         let index = this.indexOf(val)
-        return index >= 0 ? this.splice(index,1) : this
+        index < 0 || this.splice(index,1)
+        return this
     }
 })
 
