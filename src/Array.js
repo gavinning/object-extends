@@ -33,6 +33,20 @@ Array.prototype.each || Object.defineProperty(Array.prototype, 'each', {
     }
 })
 
+// alias each
+Array.prototype.asyncEach || Object.defineProperty(Array.prototype, 'asyncEach', {
+    async value(fn) {
+        return await this.each(fn)
+    }
+})
+
+// alias each
+Array.prototype.asyncForEach || Object.defineProperty(Array.prototype, 'asyncForEach', {
+    async value(fn) {
+        return await this.each(fn)
+    }
+})
+
 Array.prototype.asyncMap || Object.defineProperty(Array.prototype, 'asyncMap', {
     async value(fn) {
         let arr = []
@@ -53,6 +67,20 @@ Array.prototype.asyncFilter || Object.defineProperty(Array.prototype, 'asyncFilt
             if(!res) arr.push(this[i])
         }
         return arr
+    }
+})
+
+Array.prototype.asyncSome || Object.defineProperty(Array.prototype, 'asyncSome', {
+    async value(fn) {
+        let map = await this.asyncMap(fn)
+        return map.some(item => item === true)
+    }
+})
+
+Array.prototype.asyncEvery || Object.defineProperty(Array.prototype, 'asyncEvery', {
+    async value(fn) {
+        let map = await this.asyncMap(fn)
+        return map.every(item => item === true)
     }
 })
 
@@ -87,11 +115,3 @@ Array.prototype.remove || Object.defineProperty(Array.prototype, 'remove', {
         return this
     }
 })
-
-
-
-
-
-
-
-

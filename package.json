@@ -1,7 +1,7 @@
 {
   "name": "object-extends",
-  "version": "1.0.3",
-  "description": "object extends",
+  "version": "1.1.0",
+  "description": "object extends, async array methods, async each, async forEach, async map, async find",
   "main": "src/index.js",
   "scripts": {
     "test": "node test"
@@ -12,7 +12,15 @@
   },
   "keywords": [
     "object",
-    "extends"
+    "extends",
+    "async array methods",
+    "async each",
+    "async forEach",
+    "async find",
+    "async some",
+    "async every",
+    "array unique",
+    "array remove"
   ],
   "author": "gavinning",
   "license": "MIT",
