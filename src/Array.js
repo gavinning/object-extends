@@ -115,3 +115,67 @@ Array.prototype.remove || Object.defineProperty(Array.prototype, 'remove', {
         return this
     }
 })
+
+// 根据条件查询最大值
+Array.prototype.max || Object.defineProperty(Array.prototype, 'max', {
+    value(fn) {
+        if (!fn || typeof fn != 'function') {
+            return Math.max.apply(Math, this)
+        }
+
+        let arr = this.slice(0)
+        let top = arr.shift()
+
+        while (arr.length > 0) {
+            let b = arr.shift()
+            fn(top, b) ? top : top = b
+        }
+
+        return top
+    }
+})
+
+// 可靠的排序方法
+Array.prototype.sorted || Object.defineProperty(Array.prototype, 'sorted', {
+    value(fn) {
+        switch (fn) {
+            case '>':
+                fn = (a, b) => a > b
+                break
+
+            case '>=':
+                fn = (a, b) => a >= b
+                break
+
+            case '<':
+                fn = (a, b) => a < b
+                break
+
+            case '<=':
+                fn = (a, b) => a <= b
+                break
+
+            default:
+                break;
+        }
+
+        if (typeof fn != 'function') {
+            fn = (a, b) => a < b
+        }
+
+        let ret = []
+        let arr = this.slice(0)
+
+        if (arr.length < 2) {
+            return this
+        }
+
+        while (arr.length > 0) {
+            let val = arr.max(fn)
+            arr.remove(val)
+            ret.push(val)
+        }
+
+        return ret
+    }
+})
